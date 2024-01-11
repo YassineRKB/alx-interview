@@ -6,7 +6,7 @@ def canUnlockAll(boxes):
     """find if all the boxes can be opened"""
     if boxes is None:
         return False
-    if len(boxes) >= 1:
+    if len(boxes) <= 1:
         if len(boxes) == 0:
             return False
         return True
