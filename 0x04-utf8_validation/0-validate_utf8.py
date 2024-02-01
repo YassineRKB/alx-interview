@@ -15,7 +15,11 @@ def validUTF8(data):
         elif data[i] & 0b11111000 == 0b11110000:
             step = 4
             if n - i >= step:
-                next_body = all((data[j] & 0b11000000 == 0b10000000) for j in range(i + 1, i + step))
+                next_body = True
+                for j in range(i + 1, i + step):
+                    if not (data[j] & 0b11000000 == 0b10000000):
+                        next_body = False
+                        break
                 if not next_body:
                     return False
                 bCount = step - 1
@@ -24,7 +28,11 @@ def validUTF8(data):
         elif data[i] & 0b11110000 == 0b11100000:
             step = 3
             if n - i >= step:
-                next_body = all((data[j] & 0b11000000 == 0b10000000) for j in range(i + 1, i + step))
+                next_body = True
+                for j in range(i + 1, i + step):
+                    if not (data[j] & 0b11000000 == 0b10000000):
+                        next_body = False
+                        break
                 if not next_body:
                     return False
                 bCount = step - 1
@@ -33,7 +41,11 @@ def validUTF8(data):
         elif data[i] & 0b11100000 == 0b11000000:
             step = 2
             if n - i >= step:
-                next_body = all((data[j] & 0b11000000 == 0b10000000) for j in range(i + 1, i + step))
+                next_body = True
+                for j in range(i + 1, i + step):
+                    if not (data[j] & 0b11000000 == 0b10000000):
+                        next_body = False
+                        break
                 if not next_body:
                     return False
                 bCount = step - 1
@@ -42,4 +54,3 @@ def validUTF8(data):
         else:
             return False
     return True
-
