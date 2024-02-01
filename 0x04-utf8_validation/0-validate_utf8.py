@@ -7,13 +7,15 @@ def validUTF8(data):
     bCount = 0
     for byte in data:
         if bCount == 0:
-            if byte >> 5 == 0b110:
+            if byte >> 7 == 0b0:
+                bCount = 0
+            elif byte >> 5 == 0b110:
                 bCount = 1
             elif byte >> 4 == 0b1110:
                 bCount = 2
             elif byte >> 3 == 0b11110:
                 bCount = 3
-            elif byte >> 7:
+            else:
                 return False
         else:
             if byte >> 6 != 0b10:
