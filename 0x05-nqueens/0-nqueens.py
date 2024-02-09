@@ -39,9 +39,13 @@ def solve_n_queens(N):
     solutions = []
     solve_n_queens_util(board, 0, N, solutions)
     for solution in solutions:
-        for row in solution:
-            print(row)
-        print()
+        queens_positions = []
+        for i in range(N):
+            for j in range(N):
+                if solution[i][j] == '1':
+                    queens_positions.append([i, j])
+        print(queens_positions)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
