@@ -2,6 +2,7 @@
 """module for n queens"""
 import sys
 
+
 def is_safe(board, row, col, N):
     """Check if a queen can be placed on board"""
     for i in range(row):
@@ -15,6 +16,7 @@ def is_safe(board, row, col, N):
             return False
     return True
 
+
 def solve_n_queens_util(board, row, N, solutions):
     """Solve n queens problem using backtracking"""
     if row == N:
@@ -26,6 +28,7 @@ def solve_n_queens_util(board, row, N, solutions):
             board[row][col] = 1
             solve_n_queens_util(board, row + 1, N, solutions)
             board[row][col] = 0
+
 
 def solve_n_queens(N):
     """Solve n queens problem and print the solutions"""
