@@ -4,14 +4,14 @@
 
 def rotate_2d_matrix(matrix):
     """rotate 2d matrix"""
-    l = len(matrix)
-    for i in range(l // 2):
-        for j in range(i, l - i - 1):
+    lin = len(matrix)
+    for i in range(lin // 2):
+        for j in range(i, lin - i - 1):
             temp = matrix[i][j]
-            matrix[i][j] = matrix[l - 1 - j][i]
-            matrix[l - 1 - j][i] = matrix[l - 1 - i][l - 1 - j]
-            matrix[l - 1 - i][l - 1 - j] = matrix[j][l - 1 - i]
-            matrix[j][l - 1 - i] = temp
+            matrix[i][j] = matrix[lin - 1 - j][i]
+            matrix[lin - 1 - j][i] = matrix[lin - 1 - i][lin - 1 - j]
+            matrix[lin - 1 - i][lin - 1 - j] = matrix[j][lin - 1 - i]
+            matrix[j][lin - 1 - i] = temp
     return matrix
 
 
