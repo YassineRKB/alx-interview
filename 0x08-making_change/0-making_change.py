@@ -2,7 +2,7 @@
 """coin change problem"""
 
 
-def make_change(coins, total):
+def makeChange(coins, total):
     """Return the fewest number of coins needed to make up the total"""
     if total <= 0:
         return 0
